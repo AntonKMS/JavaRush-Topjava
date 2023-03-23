@@ -17,7 +17,7 @@ import static ru.javawebinar.topjava.util.UserMealsUtil.filteredByCycles;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.format("Hello TopJava Enterprise!");
+        //System.out.format("Hello TopJava Enterprise!");
 
         List<UserMeal> meals = Arrays.asList(
                 new UserMeal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500),
