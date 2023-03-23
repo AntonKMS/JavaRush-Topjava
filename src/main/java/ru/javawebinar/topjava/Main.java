@@ -1,15 +1,6 @@
 package ru.javawebinar.topjava;
 
-import ru.javawebinar.topjava.model.UserMeal;
-import ru.javawebinar.topjava.model.UserMealWithExcess;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
-
-import static ru.javawebinar.topjava.util.UserMealsUtil.filteredByCycles;
 
 /**
  * @see <a href="http://topjava.herokuapp.com">Demo application</a>
