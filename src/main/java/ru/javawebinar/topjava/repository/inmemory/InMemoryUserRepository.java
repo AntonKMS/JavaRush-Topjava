@@ -7,10 +7,7 @@ import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -20,10 +17,10 @@ public class InMemoryUserRepository implements UserRepository {
 
     private Map<Integer, User> repository = new ConcurrentHashMap<>();
     private AtomicInteger counter = new AtomicInteger();
-
     @Override
     public boolean delete(int id) {
         log.info("delete {}", id);
+
         return repository.remove(id) != null;
     }
 
@@ -42,20 +39,34 @@ public class InMemoryUserRepository implements UserRepository {
     @Override
     public User get(int id) {
         log.info("get {}", id);
+
         return repository.get(id);
     }
 
     @Override
     public List<User> getAll() {
         log.info("getAll");
+        List<User> userList = new ArrayList<>(repository.values());
+        Collections.sort(userList, new Comparator<User>() {
+            @Override
+            public int compare(User u1, User u2) {
 
-        return new ArrayList<>(repository.values());
+                return u1.getName().compareTo(u2.getName());
+            }
+        });
+
+        return userList;
     }
 
     @Override
     public User getByEmail(String email) {
         log.info("getByEmail {}", email);
-        repository.get()
+        List<User> userList = new ArrayList<>(repository.values());
+        for(User user:userList){
+            if(user.getEmail().equals(email))
+                return user;
+        }
+
         return null;
     }
 }
