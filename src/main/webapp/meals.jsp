@@ -17,7 +17,6 @@
         <th>Date</th>
         <th>Description</th>
         <th>Calories</th>
-        <th>Excess</th>
         </tr>
     </thead>
 
@@ -31,7 +30,6 @@
                     </td>
                     <td>${meal.getDescription()}</td>
                     <td>${meal.getCalories()}</td>
-                    <td>${meal.isExcess()}</td>
                     </tr>
 
             </c:forEach>
